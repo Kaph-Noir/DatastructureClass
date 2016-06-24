@@ -1,12 +1,12 @@
 f = open('sm_friend.txt')
-print (f)
 
 node =''
 for line in f:
     if line.strip():
         line = line[0:-1]
         node += line
-        print(node)
+
+print(node)
 
 
 '''

@@ -13,3 +13,16 @@ class Vertex:
         a.next = self.first
         self.first = a
 
+class Node:
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
+
+f = open('sm_friend.txt')
+
+for line in f:
+    if line.strip():
+        line = line[0:-1]
+
+def main():
+    node.add(node)
