@@ -1,13 +1,11 @@
 f = open('sm_friend.txt')
 
-node =''
+list = []
 for line in f:
     if line.strip():
         line = line[0:-1]
-        node += line
-
-print(node)
-
+        list.append(line)
+print(list)
 
 '''
 def read():
