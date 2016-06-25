@@ -16,6 +16,20 @@ class Vertex:
         a.next = self.first
         self.first = a
 
+#
+# 0. Read data files 기능 구현
+#
+
+# Print data
+def read_data_files():
+    L = get_user_data()
+    print("Total Users : ", end='');print (len(L))
+    C = get_friend_data()
+    print("Total Friendship Records : ", end='');print(C//3)
+    W = get_word_data()
+    print("Total Tweets : ", end='');print (W//4)
+
+# user.txt 다루기 + Total User 구하기
 def get_user_data():
     f = open('sm_user.txt', 'r')
     i=0
@@ -37,17 +51,7 @@ def get_user_data():
         L.append(a.name)
     return L
 
-
-
-def read_data_files():
-    L = get_user_data()
-    print("Total Users : ", end='');print (len(L))
-    C = get_friend_data()
-    print("Total Friendship Records : ", end='');print(C//3)
-    W = get_word_data()
-    print("Total Tweets : ", end='');print (W//4)
-
-
+# friend.txt 다루기 + Total Friendship Records 구하기
 def get_friend_data():
     g = open('sm_friend.txt', 'r')
     count = 0
@@ -58,6 +62,7 @@ def get_friend_data():
     g.close()
     return count
 
+# word.txt 다루기 + Total Tweets 구하기
 def get_word_data():
     h = open('sm_word.txt')
     count = 0
@@ -68,6 +73,15 @@ def get_word_data():
     h.close()
     return count
 
+#
+#
+#
+
+#
+# Display Interfaces
+#
+
+# Menu
 print("=== Interface ===")
 print("0. Read data files")
 print("1. display statistics")
@@ -81,10 +95,17 @@ print("8. Find strongly connected components")
 print("9. Find shortest path from a given user")
 print("99. Quit")
 
+# Button
 number = int(input("Select Menu:"))
 print("You pressed", end =' ');print(number)
 
+
+# Conditions
 if number == 0:
     read_data_files()
 elif number == 1:
     get_statistics()
+    
+#
+#
+#
