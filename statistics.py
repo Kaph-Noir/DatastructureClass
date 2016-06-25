@@ -27,19 +27,19 @@ class Vertex:
 
 def get_friendship_data():
     i=0
-    init_list=[]
+    line2list_elem=[]
     L=[]
     while True:
         line = f.readline()
         if i % 4 == 0:
-            init_list.append(line.strip())
+            line2list_elem.append(line.strip())
         i += 1
         #print(init_list)
         if not line: break
-    for i in range(len(init_list)):
-        a = init_list[i]
+    for i in range(len(line2list_elem)):
+        a = line2list_elem[i]
         a = Vertex()
-        a.name = init_list[i]
+        a.name = line2list_elem[i]
         a.n = i
         L.append(a.name)
     #print(len(L))
@@ -63,13 +63,7 @@ def get_friendship_data():
     g.close()
     #return L
 
-'''
-        if line2 not in friendship:
-            #print(line2.strip())
-            friendship.append(line2.strip())
-'''
 get_friendship_data()
-
 
 def main():
     return 0

@@ -39,22 +39,21 @@ def read_data_files():
 def get_user_data():
     f = open('sm_user.txt', 'r')
     i=0
-    list=[]
+    line2list_elem=[]
     L=[]
     while True:
         line = f.readline()
         if i % 4 == 0:
-            list.append(line.strip())
+            line2list_elem.append(line.strip())
         i += 1
         if not line: break
-    f.close()
-    L=[]
-    for i in range(len(list)):
-        a = list[i]
+    for i in range(len(line2list_elem)):
+        a = line2list_elem[i]
         a = Vertex()
-        a.name = list[i]
+        a.name = line2list_elem[i]
         a.n = i
         L.append(a.name)
+    f.close()
     return L
 
 # friend.txt 다루기 + Total Friendship Records 구하기
@@ -70,7 +69,7 @@ def get_friend_data():
 
 # word.txt 다루기 + Total Tweets 구하기
 def get_word_data():
-    h = open('sm_word.txt')
+    h = open('sm_word.txt', 'r')
     count = 0
     for line in h:
         line = line[0:-1]
