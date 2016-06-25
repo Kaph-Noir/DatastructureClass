@@ -1,6 +1,61 @@
 def statistics():
     return 0
 
+class Adj:
+    def __init__(self):
+        self.n = 0
+        self.next = None
+
+class Vertex:
+    def __init__(self):
+        self.n = 0
+        self.first = None
+    def add(self, v):
+        a = Adj()
+        a.n = v.n
+        a.next = self.first
+        self.first = a
+
+def get_user_data():
+    f = open('sm_user.txt', 'r')
+    i=0
+    list=[]
+    L=[]
+    while True:
+        line = f.readline()
+        if i % 4 == 0:
+            list.append(line.strip())
+        i += 1
+        if not line: break
+    f.close()
+    L=[]
+    for i in range(len(list)):
+        a = list[i]
+        a = Vertex()
+        a.name = list[i]
+        a.n = i
+        L.append(a.name)
+    return L
+
+
+
+def read_data_files():
+    L = get_user_data()
+    print("Total Users : ", end='');print (len(L))
+    C = get_friend_data()
+    print("Total Friendship Records : ", end='');print(C//3)
+
+
+def get_friend_data():
+    g = open('sm_friend.txt', 'r')
+    count = 0
+    for line in g:
+        line = line[0:-1]
+        count += 1
+    count +=1
+    g.close()
+    return count
+
 print("=== Interface ===")
 print("0. Read data files")
 print("1. display statistics")
@@ -15,9 +70,9 @@ print("9. Find shortest path from a given user")
 print("99. Quit")
 
 number = int(input("Select Menu:"))
-print(number)
+print("You pressed", end =' ');print(number)
 
 if number == 0:
-    read()
+    read_data_files()
 elif number == 1:
     statistics()
