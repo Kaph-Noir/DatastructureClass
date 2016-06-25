@@ -1,6 +1,6 @@
 f = open('sm_user.txt', 'r')
 
-h = open('sm_word.txt')
+
 
 class Adj:
     def __init__(self):
@@ -62,12 +62,24 @@ def get_friend_data():
     # lines = list(map(lambda s: s.strip(), lines))
     # print (lines)
 
-
-get_friend_data()
+def get_word_data():
+    h = open('sm_word.txt')
+    count = 0
+    for line in h:
+        line = line[0:-1]
+        count += 1
+    count += 1
+    h.close()
+    return count
 
 def read_data_files():
     L = get_user_data()
     print("Total Users : ", end='');print (len(L))
 
-    M = get_friend_data()
-    print("Total Friendship Records : ", end='');print(len(L))
+    C = get_friend_data()
+    print("Total Friendship Records : ", end='');print(C//3)
+
+    W = get_word_data()
+    print("Total Tweets : ", end='');print (W//4)
+
+read_data_files()

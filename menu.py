@@ -1,4 +1,4 @@
-def statistics():
+def get_statistics():
     return 0
 
 class Adj:
@@ -44,6 +44,8 @@ def read_data_files():
     print("Total Users : ", end='');print (len(L))
     C = get_friend_data()
     print("Total Friendship Records : ", end='');print(C//3)
+    W = get_word_data()
+    print("Total Tweets : ", end='');print (W//4)
 
 
 def get_friend_data():
@@ -54,6 +56,16 @@ def get_friend_data():
         count += 1
     count +=1
     g.close()
+    return count
+
+def get_word_data():
+    h = open('sm_word.txt')
+    count = 0
+    for line in h:
+        line = line[0:-1]
+        count += 1
+    count += 1
+    h.close()
     return count
 
 print("=== Interface ===")
@@ -75,4 +87,4 @@ print("You pressed", end =' ');print(number)
 if number == 0:
     read_data_files()
 elif number == 1:
-    statistics()
+    get_statistics()
