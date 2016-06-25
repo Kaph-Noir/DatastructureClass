@@ -1,5 +1,6 @@
-def get_statistics():
-    return 0
+#
+# Linked list 구현
+#
 
 class Adj:
     def __init__(self):
@@ -16,6 +17,11 @@ class Vertex:
         a.next = self.first
         self.first = a
 
+#
+#
+#
+
+'''function part'''
 #
 # 0. Read data files 기능 구현
 #
@@ -78,6 +84,18 @@ def get_word_data():
 #
 
 #
+# 1. Display Statistics 기능 구현
+#
+
+def get_statistics():
+    return 0
+
+
+#
+#
+#
+
+#
 # Display Interfaces
 #
 
@@ -105,7 +123,7 @@ if number == 0:
     read_data_files()
 elif number == 1:
     get_statistics()
-    
+
 #
 #
 #
